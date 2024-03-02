@@ -1,0 +1,72 @@
+source ~/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+# antigen bundle heroku
+antigen bundle pip
+# antigen bundle lein
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme refined
+
+antigen bundle MichaelAquilina/zsh-auto-notify
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen bundle linnnus/autovenv
+antigen bundle zpm-zsh/colorize
+antigen bundle voronkovich/gitignore.plugin.zsh
+
+# antigen bundle ytakahashi/igit --branch=main
+
+# Tell Antigen that you're done.
+antigen apply
+
+# c code runner
+function cl() {
+  echo -e "compiling ${1%.*}"
+  #   time gcc -lstdc++ -lm -o ${1%.*} $1
+  time g++ -o ${1%.*} $1
+
+  if [ -f ${1%.*} ]; then
+    echo -e "----------------- \n"
+    chmod +x ${1%.*}
+    ./${1%.*}
+    rm ${1%.*}
+  else
+    echo -e "----------------- \n"
+    echo -e "compiler didn't create an executable file!\n"
+  fi
+}
+
+# Git update check
+function git_update_check {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    # Git remote update checks for updates
+    git remote update 
+    # Check if there are any updates
+    if [ $(git rev-list HEAD...origin/master --count) -gt 0 ]; then
+      # echo "There are updates available for this repository"
+      notify-send "Git" "There are updates available for this repository"
+    fi
+  fi
+}
+
+# Font management
+alias fontrem="mv ~/.local/share/fonts ~/.local/share/.fonts"
+alias fontadd="mv ~/.local/share/.fonts ~/.local/share/fonts"
+
+# Personalized ones
+alias docker="podman"
+alias y="yt-dlp"
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+# Created by `pipx` on 2023-06-25 03:27:55
+export PATH="$PATH:/home/sharafat/.local/bin"
+alias amate="python $HOME/amate.py"

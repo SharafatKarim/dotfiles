@@ -1,0 +1,25 @@
+# Created by `pipx` on 2023-06-25 03:27:55
+export PATH="$PATH:/home/sharafat/.local/bin"
+export npm_config_prefix="$HOME/.local"
+
+# sharafat's Scripts
+# ./break.sh &
+./Templates/scripts/break.sh &
+
+# Manually created for telegram
+# export QT_QPA_PLATFORMTHEME='xdgdesktopportal'
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
+# XDG user directories
+echo $XDG_CONFIG_HOME
+
+# Android Home
+export ANDROID_HOME="/home/sharafat/Android/Sdk"
+
+# Added by Toolbox App
+export PATH="$PATH:/home/sharafat/.local/share/JetBrains/Toolbox/scripts"
+
+# export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
