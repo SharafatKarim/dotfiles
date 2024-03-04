@@ -2,6 +2,8 @@
 export PATH="$PATH:/home/sharafat/.local/bin"
 export npm_config_prefix="$HOME/.local"
 
+GTK_THEME=Qogir-manjaro-dark
+
 # sharafat's Scripts
 # ./break.sh &
 ./Templates/scripts/break.sh &
