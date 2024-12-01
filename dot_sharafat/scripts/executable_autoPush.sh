@@ -10,16 +10,20 @@ function autoPush() {
         cd $file_location
         git add .
         git commit -am "Auto push at $currentTime"
+        git pull --rebase
         git push
     done
 
-    echo "Auto push done at $currentTime"
+    # echo "Auto push done at $currentTime"
     notify-send "Automation" "Auto push done at $currentTime"
 }
 
-file_locations=("/home/sharafat/Desktop/academic" "/home/sharafat/Desktop/code/problem-sloving" "/home/sharafat/Desktop/code/contest")
+file_locations=("/home/sharafat/Documents/academic" "/home/sharafat/Desktop/code/problem-sloving" "/home/sharafat/Desktop/code/practice-contest" "/home/sharafat/Desktop/gits/logs" "/home/sharafat/Desktop/gits/notes")
 
-# Wait for 300 seconds (5 minutes)
-sleep 300
-# auto push
-autoPush
+while true
+do
+    sleep 5m
+    autoPush
+    sleep
+    sleep 55m
+done

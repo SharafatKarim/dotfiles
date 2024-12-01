@@ -19,7 +19,7 @@ antigen theme refined
 antigen bundle MichaelAquilina/zsh-auto-notify
 antigen bundle zsh-users/zsh-autosuggestions
 
-antigen bundle linnnus/autovenv
+# antigen bundle linnnus/autovenv
 antigen bundle zpm-zsh/colorize
 antigen bundle voronkovich/gitignore.plugin.zsh
 
@@ -63,10 +63,24 @@ alias fontrem="mv ~/.local/share/fonts ~/.local/share/.fonts"
 alias fontadd="mv ~/.local/share/.fonts ~/.local/share/fonts"
 
 # Personalized ones
+alias gp="git pull --rebase && git push"
+function gflow {
+    git add .
+    git commit -am "$1"
+    git pull --rebase
+    git push
+}
+
+alias pr="echo '$1'"
 alias docker="podman"
 alias y="yt-dlp"
+alias ya="yt-dlp --extract-audio"
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias py="bpython"
 
-# Created by `pipx` on 2023-06-25 03:27:55
-export PATH="$PATH:/home/sharafat/.local/bin"
 alias amate="python $HOME/amate.py"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pokemon-colorscripts -r
+

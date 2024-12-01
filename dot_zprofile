@@ -1,12 +1,17 @@
-# Created by `pipx` on 2023-06-25 03:27:55
+# local
 export PATH="$PATH:/home/sharafat/.local/bin"
 export npm_config_prefix="$HOME/.local"
 
-GTK_THEME=Qogir-manjaro-dark
+# GTK_THEME=Qogir-manjaro-dark
+
+# Java
+# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+# export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
 
 # sharafat's Scripts
-# ./break.sh &
-./Templates/scripts/break.sh &
+./.sharafat/scripts/break.sh &
+./.sharafat/scripts/autoPush.sh &
 
 # Manually created for telegram
 # export QT_QPA_PLATFORMTHEME='xdgdesktopportal'
@@ -15,13 +20,19 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
 
-# XDG user directories
-echo $XDG_CONFIG_HOME
+# flutter + android
+export PATH="$PATH:/home/sharafat/.flutter/bin"
+export ANDROID_HOME="/home/sharafat/Android/Sdk"
+export CHROME_EXECUTABLE="firefox"
 
 # Android Home
 export ANDROID_HOME="/home/sharafat/Android/Sdk"
 
+# XDG user directories
+# echo $XDG_CONFIG_HOME
+
 # Added by Toolbox App
 export PATH="$PATH:/home/sharafat/.local/share/JetBrains/Toolbox/scripts"
 
-# export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# Cargo Bin paths
+export PATH="$PATH:/home/sharafat/.local/bin:/home/sharafat/.cargo/bin"
