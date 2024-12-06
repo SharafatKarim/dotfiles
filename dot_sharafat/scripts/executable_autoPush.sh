@@ -18,7 +18,7 @@ function autoPush() {
     notify-send "Automation" "Auto push done at $currentTime"
 }
 
-file_locations=("/home/sharafat/Documents/academic" "/home/sharafat/Desktop/code/problem-sloving" "/home/sharafat/Desktop/code/practice-contest" "/home/sharafat/Desktop/gits/logs" "/home/sharafat/Desktop/gits/notes")
+file_locations=("/home/sharafat/Documents/academic" "/home/sharafat/Desktop/code/problem-sloving" "/home/sharafat/Desktop/code/practice-contest" "/home/sharafat/Desktop/gits/logs" "/home/sharafat/Desktop/gits/notes" "/home/sharafat/Desktop/gits/stash-contents")
 
 while true
 do
