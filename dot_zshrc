@@ -12,17 +12,20 @@ antigen bundle command-not-found
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 
 # Load the theme.
 antigen theme refined
 
 antigen bundle MichaelAquilina/zsh-auto-notify
-antigen bundle zsh-users/zsh-autosuggestions
 
-# antigen bundle linnnus/autovenv
+antigen bundle linnnus/autovenv
 antigen bundle zpm-zsh/colorize
 antigen bundle voronkovich/gitignore.plugin.zsh
-
+antigen bundle Aloxaf/fzf-tab
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+antigen bundle unixorn/fzf-zsh-plugin@main
 # antigen bundle ytakahashi/igit --branch=main
 
 # Tell Antigen that you're done.
