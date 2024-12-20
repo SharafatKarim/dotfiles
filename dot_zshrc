@@ -116,13 +116,12 @@ function gflow {
     git push
 }
 
-alias pr="echo '$1'"
 alias docker="podman"
 alias y="yt-dlp"
 alias ya="yt-dlp --extract-audio"
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias py="bpython"
 
+# scripts
 alias amate="python $HOME/amate.py"
 
 
