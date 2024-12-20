@@ -25,17 +25,25 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light zpm-zsh/colorize
 
+# Oh-My-ZSH plugins
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
+zinit snippet OMZP::colorize
+zinit snippet OMZP::gitignore
+zinit snippet OMZP::git-auto-fetch
 zinit snippet OMZP::sudo
+zinit snippet OMZP::npm
+zinit snippet OMZP::common-aliases
+zinit snippet OMZP::pyenv
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::autoenv
 
 # Load completions
 autoload -Uz compinit && compinit
