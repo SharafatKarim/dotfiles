@@ -1,6 +1,8 @@
 # local
 export PATH="$PATH:/home/sharafat/.local/bin"
-export npm_config_prefix="$HOME/.local"
+
+# Throws error with `nvm`
+# export npm_config_prefix="$HOME/.local"
 
 # GTK_THEME=Qogir-manjaro-dark
 

@@ -173,6 +173,8 @@ alias py="bpython"
 # scripts
 alias amate="python $HOME/amate.py"
 
+# nvm source
+source /usr/share/nvm/init-nvm.sh
 
 # Shell integrations
 eval "$(fzf --zsh)"
