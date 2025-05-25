@@ -125,6 +125,11 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 
+# Android
+alias droid-lists='~/Android/Sdk/emulator/emulator -list-avds'
+alias droid-1='~/Android/Sdk/emulator/emulator @Medium_Phone_API_35'
+
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
