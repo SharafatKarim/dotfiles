@@ -24,6 +24,7 @@ while true
 do
     sleep 5m
     autoPush
+    rclone sync /home/sharafat/Documents/Books drive-ug:DATA/Books
     sleep
     sleep 55m
 done
