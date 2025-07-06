@@ -45,7 +45,8 @@ alias py="bpython"
 
 # scripts
 alias amate="python $HOME/amate.py"
-alias chezmoi-up="chezmoi re-add && chezmoi cd && gflow "Auto push at $(date +"%T")" && exit"
+alias chezmoi-cd="chezmoi re-add && chezmoi cd"
+alias chezmoi-up="gflow "Auto push at $(date +"%T")" && exit"
 
 # Gemini CLI
 alias gemini="npx https://github.com/google-gemini/gemini-cli"
