@@ -37,7 +37,7 @@ zinit snippet OMZP::git-auto-fetch
 zinit snippet OMZP::sudo
 zinit snippet OMZP::npm
 # zinit snippet OMZP::common-aliases
-zinit snippet OMZP::pyenv
+#   zinit snippet OMZP::pyenv
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
@@ -133,6 +133,10 @@ zinit light-mode for \
 # Source :: personal aliases
 if [ -f "$HOME/.sharafat/aliases.sh" ]; then
     source "$HOME/.sharafat/aliases.sh"
+fi
+
+if [[ -z $VIRTUAL_ENV ]] && [[ -d .venv && -f .venv/bin/activate ]]; then
+  source .venv/bin/activate
 fi
 
 # nvm source

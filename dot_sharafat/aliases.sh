@@ -25,6 +25,25 @@ function cl() {
   fi
 }
 
+# assembly code runner
+function asm() {
+  echo -e "assembling ${1%.*}!"
+  #   time gcc -lstdc++ -lm -o ${1%.*} $1
+  time nasm -f elf $1
+
+  if [ -f ${1%.*}.o ]; then
+    echo -e "----------------- \n"
+    ld -m elf_i386 -s -o ${1%.*} ${1%.*}.o
+    chmod +x ${1%.*}
+    ./${1%.*}
+    rm ${1%.*}.o
+    rm ${1%.*}
+  else
+    echo -e "----------------- \n"
+    echo -e "failed!\n"
+  fi
+}
+
 # Font management
 alias fontrem="mv ~/.local/share/fonts ~/.local/share/.fonts"
 alias fontadd="mv ~/.local/share/.fonts ~/.local/share/fonts"
