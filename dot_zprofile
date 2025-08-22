@@ -25,7 +25,8 @@ fi
 # flutter + android
 export PATH="$PATH:/home/sharafat/.flutter/bin"
 export ANDROID_HOME="/home/sharafat/Android/Sdk"
-export CHROME_EXECUTABLE="firefox"
+export CHROME_EXECUTABLE="google-chrome-stable"
+# export CHROME_EXECUTABLE="firefox"
 
 # Android Home
 export ANDROID_HOME="/home/sharafat/Android/Sdk"
