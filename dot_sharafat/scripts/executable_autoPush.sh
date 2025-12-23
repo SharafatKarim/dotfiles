@@ -1,35 +1,99 @@
 #!/bin/bash
 
-function autoPush() {
-    currentTime=$(date +"%T")
-    echo "Auto push at $currentTime"
+################################################################################
+# Auto Push Script
+################################################################################
+# This script commits and pushes changes to multiple git repositories.
+# Called by the master automation script (sharafat.sh).
+################################################################################
 
-    for file_location in "${file_locations[@]}"
-    do
-        cd $file_location
+################################################################################
+# Configuration
+################################################################################
+
+# Git repositories to auto-push
+declare -a GIT_REPOS=(
+    "/home/sharafat/Documents/academic"
+    "/home/sharafat/Desktop/code/problem-sloving"
+    "/home/sharafat/Desktop/code/practice-contest"
+    "/home/sharafat/Desktop/gits/logs"
+    "/home/sharafat/Desktop/gits/notes"
+    "/home/sharafat/Desktop/gits/stash-contents"
+)
+
+LOG_FILE="$HOME/.sharafat/automation.log"
+
+################################################################################
+# Functions
+################################################################################
+
+# Log function with timestamp
+log() {
+    local message="[$(date +"%Y-%m-%d %T")] [GIT] $1"
+    echo "$message"
+    echo "$message" >> "$LOG_FILE"
+}
+
+# Auto-push git repositories
+auto_push_repos() {
+    local current_time=$(date +"%T")
+    log "Starting auto-push for ${#GIT_REPOS[@]} repositories"
+
+    for repo_path in "${GIT_REPOS[@]}"; do
+        if [ ! -d "$repo_path" ]; then
+            log "WARNING: Repository not found: $repo_path"
+            continue
+        fi
+
+        log "Processing: $repo_path"
+        cd "$repo_path" || continue
+
+        # Check if it's a git repository
+        if [ ! -d ".git" ]; then
+            log "WARNING: Not a git repository: $repo_path"
+            continue
+        fi
+
+        # Stage all changes
         git add .
-        git commit -am "Auto push at $currentTime"
-        git pull --rebase
-        git push
+
+        # Commit with timestamp (only if there are changes)
+        if git diff --cached --quiet; then
+            log "No changes to commit in: $repo_path"
+        else
+            git commit -am "Auto push at $current_time"
+            
+            # Pull with rebase
+            if git pull --rebase; then
+                # Push changes
+                if git push; then
+                    log "Successfully pushed: $repo_path"
+                else
+                    log "ERROR: Failed to push: $repo_path"
+                fi
+            else
+                log "ERROR: Failed to pull: $repo_path"
+            fi
+        fi
     done
 }
 
-file_locations=("/home/sharafat/Documents/academic" "/home/sharafat/Desktop/code/problem-sloving" "/home/sharafat/Desktop/code/practice-contest" "/home/sharafat/Desktop/gits/logs" "/home/sharafat/Desktop/gits/notes" "/home/sharafat/Desktop/gits/stash-contents")
+# Send notification
+send_notification() {
+    notify-send "Automation" "Git auto-push completed at $(date +"%T")"
+}
 
-while true
-do
-    sleep 5m
-    autoPush
+################################################################################
+# Main Execution
+################################################################################
 
-    rclone sync /home/sharafat/Documents/Books drive-ug:DATA/Books
-    rclone sync /home/sharafat/Desktop/personal drive-ug:DATA/personal
-    rclone sync /home/sharafat/Desktop/canvas drive-ug:DATA/canvas
-    rclone sync /home/sharafat/Desktop/people drive-ug:DATA/people
-    rclone sync /home/sharafat/Desktop/org drive-ug:DATA/org
+log "Auto push script started"
 
-    # echo "Auto push script triggered!"
-    notify-send "Automation" "Auto push script triggered!"
+# Execute auto-push once
+auto_push_repos
 
-    sleep
-    sleep 55m
-done
+# Send notification
+send_notification
+
+log "Auto push script completed"
+
