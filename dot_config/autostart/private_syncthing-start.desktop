@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;FileTransfer;P2P
+Comment=Starts the main syncthing process in the background.
+Exec=syncthing serve --no-browser --logfile=default
+GenericName=File synchronization
+Icon=syncthing
+Keywords=synchronization;daemon;
+Name=Start Syncthing
+Terminal=false
+Type=Application
