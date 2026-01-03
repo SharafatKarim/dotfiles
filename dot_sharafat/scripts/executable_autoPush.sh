@@ -13,12 +13,14 @@
 
 # Git repositories to auto-push
 declare -a GIT_REPOS=(
-    "/home/sharafat/Documents/academic"
-    "/home/sharafat/Desktop/code/problem-sloving"
-    "/home/sharafat/Desktop/code/practice-contest"
+    "/home/sharafat/Desktop/academic/pstu-cse-academic"
+    "/home/sharafat/Desktop/learn/problem-sloving"
+    "/home/sharafat/Desktop/learn/practice-contest"
     "/home/sharafat/Desktop/gits/logs"
     "/home/sharafat/Desktop/gits/notes"
+    "/home/sharafat/Desktop/gits/blog-site"
     "/home/sharafat/Desktop/gits/stash-contents"
+    "/home/sharafat/Desktop/gits/python-notebook"
 )
 
 LOG_FILE="$HOME/.sharafat/automation.log"
