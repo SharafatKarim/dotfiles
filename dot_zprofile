@@ -2,7 +2,7 @@
 # PATH Configuration
 ################################################################################
 # Source environment variables
-"$HOME/.sharafat/envs.sh" &
+source "$HOME/.sharafat/envs.sh"
 
 
 ################################################################################
