@@ -60,6 +60,15 @@ cleanup() {
     exit 0
 }
 
+backup_pkgs() {
+    }
+    if command -v pacman &> /dev/null; then
+        log "Backing up pacman packages"
+        pacman -Q > "$HOME/.sharafat/pacman_pkgs.txt"
+    else
+        log "Pacman not found, skipping package backup"
+    fi
+
 trap cleanup SIGINT SIGTERM
 
 ################################################################################
