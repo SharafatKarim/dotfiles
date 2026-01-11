@@ -61,13 +61,13 @@ cleanup() {
 }
 
 backup_pkgs() {
-    }
     if command -v pacman &> /dev/null; then
         log "Backing up pacman packages"
         pacman -Q > "$HOME/.sharafat/pacman_pkgs.txt"
     else
         log "Pacman not found, skipping package backup"
     fi
+}
 
 trap cleanup SIGINT SIGTERM
 
@@ -90,6 +90,7 @@ bash "$BREAK_SCRIPT" &
 
 log "Started"
 validate_scripts
+backup_pkgs
 
 while true; do
     sleep "${CHECK_INTERVAL}m"
