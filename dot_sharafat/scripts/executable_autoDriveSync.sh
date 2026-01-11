@@ -13,11 +13,12 @@
 
 # Directories to sync to Google Drive
 declare -a RCLONE_SYNC_DIRS=(
-    "/home/sharafat/Documents/Books:drive-ug:DATA/Books"
-    "/home/sharafat/Desktop/personal:drive-ug:DATA/personal"
-    "/home/sharafat/Desktop/canvas:drive-ug:DATA/canvas"
-    "/home/sharafat/Desktop/people:drive-ug:DATA/people"
-    "/home/sharafat/Desktop/org:drive-ug:DATA/org"
+    "/home/sharafat/Desktop/personal:drive-ug:DATA/Desktop/personal"
+    "/home/sharafat/Desktop/canvas:drive-ug:DATA/Desktop/canvas"
+    "/home/sharafat/Desktop/people:drive-ug:DATA/Desktop/people"
+    "/home/sharafat/Desktop/org:drive-ug:DATA/Desktop/Desktop/org"
+    "/home/sharafat/Documents/Books:drive-ug:DATA/Documents/Books"
+    "/home/sharafat/Documents/sync/backup:drive-ug:DATA/Documents/sync/backup"
 )
 
 LOG_FILE="$HOME/.sharafat/automation.log"

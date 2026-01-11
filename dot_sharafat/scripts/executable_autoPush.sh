@@ -13,7 +13,7 @@
 
 # Git repositories to auto-push
 declare -a GIT_REPOS=(
-    "/home/sharafat/Desktop/academic/pstu-cse-academic"
+    "/home/sharafat/Desktop/academics/pstu-cse-academic"
     "/home/sharafat/Desktop/learn/problem-sloving"
     "/home/sharafat/Desktop/learn/practice-contest"
     "/home/sharafat/Desktop/gits/logs"
