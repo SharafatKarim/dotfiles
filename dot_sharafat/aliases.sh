@@ -120,6 +120,22 @@ alias chezmoi-cd="chezmoi re-add && chezmoi cd"
 alias chezmoi-up="gflow \"Auto push at \$(date +\"%T\")\" && exit"
 
 ################################################################################
+# Containers
+################################################################################
+alias win-up="podman-compose --file /home/sharafat/.sharafat/containers/windows.yaml up -d"
+
+podlatex() {
+    podman run --rm -it \
+      --userns=keep-id \
+      -v "$(pwd):/project:Z" \
+      -w /project \
+      leplusorg/latex \
+      latexmk -pdf "$1"
+}
+
+alias podlatex-clean='podman run --rm --userns=keep-id -v "$(pwd):/project:Z" -w /project leplusorg/latex latexmk -c'
+
+################################################################################
 # Custom Scripts
 ################################################################################
 
