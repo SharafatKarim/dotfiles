@@ -17,8 +17,12 @@ export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 # Cargo (Rust)
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Go
+export PATH="$PATH:$HOME/go/bin"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
+
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;

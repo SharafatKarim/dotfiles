@@ -21,6 +21,7 @@ declare -a GIT_REPOS=(
     "/home/sharafat/Desktop/gits/blog-site"
     "/home/sharafat/Desktop/gits/stash-contents"
     "/home/sharafat/Desktop/gits/python-notebook"
+    "/home/sharafat/Desktop/gits/obsidian"
 )
 
 LOG_FILE="$HOME/.sharafat/automation.log"
