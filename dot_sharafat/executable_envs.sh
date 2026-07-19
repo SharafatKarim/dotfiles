@@ -1,42 +1,26 @@
-################################################################################
 # PATH Configuration
-################################################################################
 
 # Local binaries
 export PATH="$PATH:$HOME/.local/bin"
-
 # Flutter
 export PATH="$PATH:$HOME/.flutter/bin"
-
 # Android SDK Platform Tools
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
-
 # JetBrains Toolbox
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
-
 # Cargo (Rust)
 export PATH="$PATH:$HOME/.cargo/bin"
-
 # Go
 export PATH="$PATH:$HOME/go/bin"
-
 # pnpm
+export PATH="$PATH:$HOME/.local/share/pnpm/bin"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-################################################################################
 # Environment Variables
-################################################################################
-
 # Android Development
 export ANDROID_HOME="$HOME/Android/Sdk"
 export CHROME_EXECUTABLE="google-chrome-stable"
 # export CHROME_EXECUTABLE="firefox"
-
 # Wayland Support
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1

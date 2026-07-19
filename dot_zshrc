@@ -1,9 +1,9 @@
 # ============================================================================
 # POWERLEVEL10K INSTANT PROMPT
 # ============================================================================
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # ============================================================================
 # ZINIT SETUP
@@ -21,7 +21,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # PLUGINS
 # ============================================================================
 # Theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Core plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -55,7 +55,7 @@ zinit cdreplay -q
 # ============================================================================
 # POWERLEVEL10K CONFIG
 # ============================================================================
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ============================================================================
 # KEYBINDINGS
@@ -139,7 +139,7 @@ fi
 # DEPENDENCY CHECK
 # ============================================================================
 _check_dependencies() {
-  local required=("git" "zsh" "fzf" "zoxide")
+  local required=("git" "zsh" "fzf" "zoxide" "eza" "bat" "delta" "podman" "yt-dlp" "bpython" "rg" "chezmoi" "fd" "ncdu" "starship")
   local missing=()
   
   for cmd in "${required[@]}"; do
@@ -156,5 +156,12 @@ _check_dependencies
 # ============================================================================
 # SHELL INTEGRATIONS
 # ============================================================================
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --zsh)"
+fi
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
+if command -v starship &>/dev/null; then
+    eval "$(starship init zsh)"
+fi

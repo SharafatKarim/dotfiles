@@ -1,15 +1,10 @@
 #!/bin/bash
 
-################################################################################
 # Sharafat's Master Automation Script
-################################################################################
 # This script manages background automation tasks including git auto-push
 # and cloud sync operations.
-################################################################################
 
-################################################################################
 # Configuration
-################################################################################
 
 AUTOPUSH_SCRIPT="$HOME/.sharafat/scripts/autoPush.sh"
 AUTOSYNC_SCRIPT="$HOME/.sharafat/scripts/autoDriveSync.sh"
@@ -23,10 +18,7 @@ CHECK_INTERVAL=1           # Check interval (in minutes)
 git_push_counter=0
 drive_sync_counter=0
 
-################################################################################
 # Functions
-################################################################################
-
 log() {
     local message="[$(date +"%Y-%m-%d %T")] [MASTER] $1"
     echo "$message"
@@ -71,20 +63,14 @@ backup_pkgs() {
 
 trap cleanup SIGINT SIGTERM
 
-################################################################################
 # Validation
-################################################################################
-
 validate_scripts() {
     [ -f "$AUTOPUSH_SCRIPT" ] || { log "ERROR: $AUTOPUSH_SCRIPT not found"; exit 1; }
     [ -f "$AUTOSYNC_SCRIPT" ] || { log "ERROR: $AUTOSYNC_SCRIPT not found"; exit 1; }
     log "Scripts validated"
 }
 
-################################################################################
 # Main Loop
-################################################################################
-
 # Break script in the background
 bash "$BREAK_SCRIPT" &
 
