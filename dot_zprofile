@@ -2,7 +2,6 @@
 # Source environment variables
 source "$HOME/.sharafat/envs.sh"
 
-
-# Auto-start scripts
-"$HOME/.sharafat/sharafat.sh" &
+# Auto-start scripts (currently systemd)
+# "$HOME/.sharafat/sharafat.sh" &
 
