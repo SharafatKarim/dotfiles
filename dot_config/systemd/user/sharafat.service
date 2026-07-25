@@ -1,0 +1,11 @@
+[Unit]
+Description=Sharafat Background Service
+After=network.target
+
+[Service]
+ExecStart=/home/sharafat/.sharafat/sharafat.sh
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
