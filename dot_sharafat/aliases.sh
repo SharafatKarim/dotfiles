@@ -20,6 +20,7 @@ command -v ncdu   &>/dev/null && alias du='ncdu'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias dol='dolphin --new-window . 1>/dev/null 2>/dev/null & disown'
 
 # Safety first
 alias rm='rm -i'        # Always ask before deleting

@@ -6,17 +6,20 @@
 
 # Configuration
 
+BREAK_SCRIPT="$HOME/.sharafat/scripts/break.sh"
 AUTOPUSH_SCRIPT="$HOME/.sharafat/scripts/autoPush.sh"
 AUTOSYNC_SCRIPT="$HOME/.sharafat/scripts/autoDriveSync.sh"
-BREAK_SCRIPT="$HOME/.sharafat/scripts/break.sh"
+HOURLY_SCRIPT="$HOME/.sharafat/scripts/autoHour.sh"
 LOG_FILE="$HOME/.sharafat/automation.log"
 
-GIT_PUSH_INTERVAL=60       # Git push every 60 minutes
-DRIVE_SYNC_INTERVAL=60     # Drive sync every 60 minutes
-CHECK_INTERVAL=1           # Check interval (in minutes)
+GIT_PUSH_INTERVAL=60        # Git push every 60 minutes
+DRIVE_SYNC_INTERVAL=60      # Drive sync every 60 minutes
+HOURLY_INTERVAL=60          # Hourly script execution every 60 minutes
+CHECK_INTERVAL=1            # Check interval (in minutes)
 
 git_push_counter=0
 drive_sync_counter=0
+hourly_counter=0
 
 # Functions
 log() {
@@ -47,6 +50,15 @@ run_drive_sync() {
     fi
 }
 
+run_hourly_script() {
+    if check_internet; then
+        log "Running hourly script"
+        bash "$HOURLY_SCRIPT"
+    else
+        log "Skipping drive sync: No internet"
+    fi
+}
+
 cleanup() {
     log "Stopped"
     exit 0
@@ -67,6 +79,7 @@ trap cleanup SIGINT SIGTERM
 validate_scripts() {
     [ -f "$AUTOPUSH_SCRIPT" ] || { log "ERROR: $AUTOPUSH_SCRIPT not found"; exit 1; }
     [ -f "$AUTOSYNC_SCRIPT" ] || { log "ERROR: $AUTOSYNC_SCRIPT not found"; exit 1; }
+    [ -f "$HOURLY_SCRIPT" ] || { log "ERROR: $HOURLY_SCRIPT not found"; exit 1; }
     log "Scripts validated"
 }
 
@@ -80,10 +93,12 @@ backup_pkgs
 
 while true; do
     sleep "${CHECK_INTERVAL}m"
-    
+
     git_push_counter=$((git_push_counter + CHECK_INTERVAL))
     drive_sync_counter=$((drive_sync_counter + CHECK_INTERVAL))
-    
+    hourly_counter=$((hourly_counter + CHECK_INTERVAL))
+
     [ "$git_push_counter" -ge "$GIT_PUSH_INTERVAL" ] && { run_git_autopush; git_push_counter=0; }
     [ "$drive_sync_counter" -ge "$DRIVE_SYNC_INTERVAL" ] && { run_drive_sync; drive_sync_counter=0; }
+    [ "$hourly_counter" -ge "$HOURLY_INTERVAL" ] && { run_hourly_script; hourly_counter=0; }
 done

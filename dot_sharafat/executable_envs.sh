@@ -2,10 +2,19 @@
 
 # Local binaries
 export PATH="$PATH:$HOME/.local/bin"
+
 # Flutter
 export PATH="$PATH:$HOME/.flutter/bin"
+
 # Android SDK Platform Tools
+export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 # JetBrains Toolbox
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 # Cargo (Rust)
@@ -18,9 +27,10 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # Environment Variables
 # Android Development
-export ANDROID_HOME="$HOME/Android/Sdk"
 export CHROME_EXECUTABLE="google-chrome-stable"
+export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
 # export CHROME_EXECUTABLE="firefox"
+
 # Wayland Support
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
