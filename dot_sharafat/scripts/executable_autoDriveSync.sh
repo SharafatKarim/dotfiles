@@ -11,6 +11,10 @@
 # Configuration
 ################################################################################
 
+# if you have nothing in your directory, clone from google drive, unless you
+# will wipe out everything in Google Drive :), so you have to be careful...
+# rclone copy drive-ug:DATA/Desktop/personal /home/sharafat/Desktop/personal
+
 # Directories to sync to Google Drive
 declare -a RCLONE_SYNC_DIRS=(
     "/home/sharafat/Desktop/personal:drive-ug:DATA/Desktop/personal"

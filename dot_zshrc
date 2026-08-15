@@ -141,7 +141,7 @@ fi
 # DEPENDENCY CHECK
 # ============================================================================
 _check_dependencies() {
-  local required=("git" "zsh" "fzf" "zoxide" "eza" "bat" "delta" "podman" "yt-dlp" "bpython" "rg" "chezmoi" "fd" "ncdu" "starship")
+  local required=("git" "zsh" "fzf" "zoxide" "eza" "bat" "podman" "yt-dlp" "bpython" "rg" "chezmoi" "fd" "ncdu" "starship")
   local missing=()
   
   for cmd in "${required[@]}"; do

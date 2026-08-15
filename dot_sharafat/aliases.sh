@@ -10,7 +10,7 @@ if command -v eza &>/dev/null; then
     alias lf='eza -l'
 fi
 command -v bat    &>/dev/null && alias cat='bat'
-command -v delta  &>/dev/null && alias diff='delta'
+# command -v delta  &>/dev/null && alias diff='delta'
 command -v rg     &>/dev/null && alias grep='rg'
 command -v fd     &>/dev/null && alias find='fd'
 command -v ncdu   &>/dev/null && alias du='ncdu'
