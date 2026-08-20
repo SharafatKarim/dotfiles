@@ -136,4 +136,12 @@ alias podlatex-clean='podman run --rm --userns=keep-id -v "$(pwd):/project:Z" -w
 # Custom Scripts
 # Amate script
 alias amate="python $HOME/amate.py"
+# Package Backup
+alias pkg-backup="[ -f ~/.sharafat/lib/utils.sh ] && source ~/.sharafat/lib/utils.sh && backup_pacman_pkgs"
+
+# System Seeding (Cloning & Drive Restore)
+alias seed-repos="bash ~/.sharafat/seed/clone_repos.sh"
+alias seed-drive="bash ~/.sharafat/seed/restore_drive.sh"
+
+
 
