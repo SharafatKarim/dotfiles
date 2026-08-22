@@ -1,0 +1,10 @@
+# List directories to sync with Google Drive using rclone.
+# Format: /local/path = remote_name:remote_path
+# Blank lines and lines starting with '#' are ignored.
+
+/home/sharafat/Desktop/personal = drive-ug:DATA/Desktop/personal
+/home/sharafat/Desktop/canvas = drive-ug:DATA/Desktop/canvas
+/home/sharafat/Desktop/people = drive-ug:DATA/Desktop/people
+/home/sharafat/Desktop/org = drive-ug:DATA/Desktop/Desktop/org
+/home/sharafat/Documents/Books = drive-ug:DATA/Documents/Books
+/home/sharafat/Documents/sync/backup = drive-ug:DATA/Documents/sync/backup
