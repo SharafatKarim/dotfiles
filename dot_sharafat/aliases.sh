@@ -21,6 +21,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias dol='dolphin --new-window . 1>/dev/null 2>/dev/null & disown'
+alias x='xdg-open'
 
 # Safety first
 alias rm='rm -i'        # Always ask before deleting
@@ -56,6 +57,32 @@ function cl() {
     echo -e "----------------- \n"
     echo -e "Compiler didn't create an executable file!\n"
   fi
+}
+
+# if md2typst isn't installed then install with
+# uv tool install md2typst
+function mdpdf() {
+    if ! command -v md2typst &> /dev/null; then
+        echo "md2typst not found. Installing via uv..."
+        uv tool install md2typst || {
+            echo "Error: Failed to install md2typst. Make sure 'uv' is installed."
+            return 1
+        }
+    fi
+
+    if [ -z "$1" ]; then
+        echo "Usage: build_typst <filename.md>"
+        return 1
+    fi
+
+    local md_file="$1"
+    local base_name="${md_file%.md}"
+    local typ_file="${base_name}.typ"
+
+    md2typst "$md_file" && \
+    typst compile "$typ_file" && \
+    rm "$typ_file" && \
+    echo "Compiled ${base_name}.pdf successfully!"
 }
 
 # Assembly Code Runner

@@ -5,9 +5,8 @@
 /home/sharafat/Desktop/learn/problem-sloving
 /home/sharafat/Desktop/learn/practice-contest
 /home/sharafat/Desktop/gits/logs
+/home/sharafat/Desktop/gits/obsidian
 /home/sharafat/Desktop/gits/notes
 /home/sharafat/Desktop/gits/blog-site
-/home/sharafat/Desktop/gits/stash-contents
 /home/sharafat/Desktop/gits/python-notebook
-/home/sharafat/Desktop/gits/obsidian
 /home/sharafat/.local/share/chezmoi
