@@ -5,9 +5,11 @@ Take a look here,
 ## How to use?
 This dotfiles is created and managed with `chezmoi dotfile manager`. 
 
-Check
-[Chezmoi's user guide](https://www.chezmoi.io/user-guide/command-overview/#daily-commands) 
+Check [Chezmoi's user guide](https://www.chezmoi.io/user-guide/command-overview/#daily-commands) 
 for getting an overview of this tool.
+
+> To initiate and run this dotfile, simply run,
+> `chezmoi init --apply SharafatKarim`
 
 ## Issues/ Recommendations?
 For any sorts of issues, or recommendations, please contact with [me](https://github.com/SharafatKarim/).
