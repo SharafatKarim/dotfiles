@@ -1,0 +1,41 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = SharafatKarim
+	email = sharafat2004@gmail.com
+[push]
+	recurseSubmodules = check
+	autoSetupRemote = true
+[submodule]
+	recurse = true
+[diff]
+	submodule = log
+	algorithm = histogram
+	colorMoved = zebra
+[status]
+	submoduleSummary = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[help]
+	autocorrect = prompt
+[merge]
+	conflictStyle = zdiff3
+[fetch]
+	prune = true
+	pruneTags = true
+[rerere]
+	enabled = true
+[alias]
+	lg = log --graph --oneline --decorate --all
+	st = status -sb
+	undo = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+
+[include]
+	path = ~/.gitconfig.local

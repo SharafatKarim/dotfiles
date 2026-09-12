@@ -107,12 +107,6 @@ function asm() {
 # Python REPL
 command -v bpython &>/dev/null && alias py='bpython'
 
-# Font Management
-# Temporarily disable custom fonts
-alias fontrem="mv ~/.local/share/fonts ~/.local/share/.fonts"
-# Re-enable custom fonts
-alias fontadd="mv ~/.local/share/.fonts ~/.local/share/fonts"
-
 # ---
 # Git Workflows
 # Quick git pull and push
@@ -125,6 +119,7 @@ function gflow {
     git pull --rebase
     git push
 }
+
 # ---
 
 # Package Managers
@@ -145,6 +140,9 @@ alias ya="yt-dlp --extract-audio"
 alias chezmoi-cd="chezmoi re-add && chezmoi cd"
 # Commit and push chezmoi changes
 alias chezmoi-up="gflow \"Auto push at \$(date +\"%T\")\" && exit"
+
+# GRUB update
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # Containers
 alias win-up="podman-compose --file /home/sharafat/.sharafat/containers/windows.yaml up -d"
