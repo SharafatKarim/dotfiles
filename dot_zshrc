@@ -167,3 +167,6 @@ fi
 if command -v starship &>/dev/null; then
     eval "$(starship init zsh)"
 fi
+autoload bashcompinit
+bashcompinit
+source "/home/sharafat/.local/share/bash-completion/completions/appman"

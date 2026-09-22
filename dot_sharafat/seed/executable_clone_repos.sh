@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Seed Script: Clone GitHub Repositories
-# Clones missing repositories defined in config/git_repos.txt
-
 source "$HOME/.sharafat/lib/utils.sh"
 load_settings
 
@@ -17,15 +14,11 @@ fi
 log "SEED" "Checking and cloning missing repositories for user: $GH_USER"
 
 while IFS= read -r line || [ -n "$line" ]; do
-    # Strip comments and whitespace
     target_path=$(echo "$line" | sed 's/#.*//' | xargs)
     [ -z "$target_path" ] && continue
 
-    # Extract repository name from end of path
     repo_name=$(basename "$target_path")
     parent_dir=$(dirname "$target_path")
-
-    # Construct GitHub URL
     clone_url="https://github.com/${GH_USER}/${repo_name}.git"
 
     if [ -d "$target_path/.git" ]; then
@@ -39,7 +32,6 @@ while IFS= read -r line || [ -n "$line" ]; do
             log "SEED" "ERROR: Failed to clone $clone_url"
         fi
     fi
-
 done < "$REPOS_CONFIG"
 
 log "SEED" "Seeding process completed."

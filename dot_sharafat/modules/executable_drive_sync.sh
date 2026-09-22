@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Module: Google Drive Sync with Safety Check
 source "$HOME/.sharafat/lib/utils.sh"
 load_settings
 
@@ -30,7 +29,6 @@ fi
 log "SYNC" "Starting rclone sync sequence"
 
 while IFS= read -r line || [ -n "$line" ]; do
-    # Strip comments and whitespace
     clean_line=$(echo "$line" | sed 's/#.*//' | xargs)
     [ -z "$clean_line" ] && continue
 
@@ -42,14 +40,12 @@ while IFS= read -r line || [ -n "$line" ]; do
         continue
     fi
 
-    # Safety Check 1: Directory exists
     if [ ! -d "$source_dir" ]; then
         log "SYNC" "WARNING: Source directory does not exist: $source_dir"
         continue
     fi
 
-    # Safety Check 2: Empty directory protection
-    # Counting entries (files/subdirs) inside source_dir
+    # Empty directory protection: prevents wiping cloud data if drive unmounted/empty
     item_count=$(find "$source_dir" -mindepth 1 | wc -l)
     if [ "$item_count" -eq 0 ]; then
         log "SYNC" "SAFETY TRIGGERED: Source directory '$source_dir' is EMPTY! Skipping sync to prevent cloud wiping."

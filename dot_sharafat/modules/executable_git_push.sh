@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Module: Git Auto-Push
 source "$HOME/.sharafat/lib/utils.sh"
 load_settings
 
@@ -25,7 +24,6 @@ log "GIT" "Starting git auto-push sequence"
 current_time=$(date +"%T")
 
 while IFS= read -r line || [ -n "$line" ]; do
-    # Strip comments and whitespace
     repo_path=$(echo "$line" | sed 's/#.*//' | xargs)
     [ -z "$repo_path" ] && continue
 

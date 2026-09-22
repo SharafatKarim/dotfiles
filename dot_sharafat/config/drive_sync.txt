@@ -7,4 +7,4 @@
 /home/sharafat/Desktop/people = drive-ug:DATA/Desktop/people
 /home/sharafat/Desktop/org = drive-ug:DATA/Desktop/Desktop/org
 /home/sharafat/Documents/Books = drive-ug:DATA/Documents/Books
-/home/sharafat/Documents/sync/backup = drive-ug:DATA/Documents/sync/backup
+/home/sharafat/Documents/backup = drive-ug:DATA/Documents/backup

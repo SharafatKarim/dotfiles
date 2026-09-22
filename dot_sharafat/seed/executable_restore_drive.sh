@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Seed Script: Restore files from Google Drive
-# Restores missing local folders defined in config/drive_sync.txt from Google Drive
-
 source "$HOME/.sharafat/lib/utils.sh"
 load_settings
 
@@ -31,7 +28,6 @@ while IFS= read -r line || [ -n "$line" ]; do
         continue
     fi
 
-    # Check if local directory is missing or empty
     if [ ! -d "$local_dir" ] || [ $(find "$local_dir" -mindepth 1 2>/dev/null | wc -l) -eq 0 ]; then
         log "SEED" "RESTORING: $remote_dir -> $local_dir"
         mkdir -p "$local_dir"
@@ -43,7 +39,6 @@ while IFS= read -r line || [ -n "$line" ]; do
     else
         log "SEED" "EXISTS: $local_dir has content, skipping restore."
     fi
-
 done < "$SYNC_CONFIG"
 
 log "SEED" "Drive restore process completed."

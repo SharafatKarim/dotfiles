@@ -1,6 +1,3 @@
-# Shell Aliases and Functions
-
-# Basic Command Aliases
 alias c='clear'
 if command -v eza &>/dev/null; then
     alias ls='eza --icons --group-directories-first'
@@ -10,40 +7,29 @@ if command -v eza &>/dev/null; then
     alias lf='eza -l'
 fi
 command -v bat    &>/dev/null && alias cat='bat'
-# command -v delta  &>/dev/null && alias diff='delta'
 command -v rg     &>/dev/null && alias grep='rg'
 command -v fd     &>/dev/null && alias find='fd'
 command -v ncdu   &>/dev/null && alias du='ncdu'
-# command -v nvim  &>/dev/null && alias vim='nvim'
 
-# Navigation shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias dol='dolphin --new-window . 1>/dev/null 2>/dev/null & disown'
 alias x='xdg-open'
 
-# Safety first
-alias rm='rm -i'        # Always ask before deleting
-alias cp='cp -i'        # Always ask before overwriting
-alias mv='mv -i'        # Always ask before overwriting
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 
-# Quick edits
 alias zshrc='${EDITOR:-nano} ~/.zshrc'
 alias zprofile='${EDITOR:-nano} ~/.zprofile'
 
-# Network & System
 alias myip='curl -s https://ifconfig.me'
 alias ports='netstat -tulanp'
 
-# Android Development
 alias droid-lists='~/Android/Sdk/emulator/emulator -list-avds'
 alias droid-1='~/Android/Sdk/emulator/emulator @Medium_Phone_API_35'
 
-# Development Tools
-# C/C++ Code Runner
-# Usage: cl <filename.c>
-# Compiles and runs C/C++ code, then cleans up the executable
 function cl() {
   echo -e "Compiling ${1%.*}..."
   time g++ -o "${1%.*}" "$1"
@@ -59,8 +45,11 @@ function cl() {
   fi
 }
 
-# if md2typst isn't installed then install with
-# uv tool install md2typst
+alias python="uv run"
+alias python3="uv run"
+alias pip="uv pip"
+alias pip3="uv pip"
+
 function mdpdf() {
     if ! command -v md2typst &> /dev/null; then
         echo "md2typst not found. Installing via uv..."
@@ -85,9 +74,6 @@ function mdpdf() {
     echo "Compiled ${base_name}.pdf successfully!"
 }
 
-# Assembly Code Runner
-# Usage: asm <filename.asm>
-# Assembles and runs x86 assembly code, then cleans up
 function asm() {
   echo -e "Assembling ${1%.*}..."
   time nasm -f elf "$1"
@@ -104,15 +90,9 @@ function asm() {
   fi
 }
 
-# Python REPL
 command -v bpython &>/dev/null && alias py='bpython'
 
-# ---
-# Git Workflows
-# Quick git pull and push
 alias gp="git pull --rebase && git push"
-# Git flow with commit message
-# Usage: gflow "commit message"
 function gflow {
     git add .
     git commit -am "$1"
@@ -120,31 +100,18 @@ function gflow {
     git push
 }
 
-# ---
-
-# Package Managers
-# Use podman instead of docker
 alias docker="podman"
-# Prefer pnpm over npm
 alias npm="pnpm"
 alias npx="pnpm dlx"
 
-# Media Tools
-# YouTube downloader
 alias y="yt-dlp"
-# YouTube audio-only downloader
 alias ya="yt-dlp --extract-audio"
 
-# Configuration Management (Chezmoi)
-# Re-add changes and navigate to chezmoi directory
 alias chezmoi-cd="chezmoi re-add && chezmoi cd"
-# Commit and push chezmoi changes
 alias chezmoi-up="gflow \"Auto push at \$(date +\"%T\")\" && exit"
 
-# GRUB update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-# Containers
 alias win-up="podman-compose --file /home/sharafat/.sharafat/containers/windows.yaml up -d"
 
 podlatex() {
@@ -158,15 +125,15 @@ podlatex() {
 
 alias podlatex-clean='podman run --rm --userns=keep-id -v "$(pwd):/project:Z" -w /project leplusorg/latex latexmk -c'
 
-# Custom Scripts
-# Amate script
 alias amate="python $HOME/amate.py"
-# Package Backup
 alias pkg-backup="[ -f ~/.sharafat/lib/utils.sh ] && source ~/.sharafat/lib/utils.sh && backup_pacman_pkgs"
 
-# System Seeding (Cloning & Drive Restore)
 alias seed-repos="bash ~/.sharafat/seed/clone_repos.sh"
 alias seed-drive="bash ~/.sharafat/seed/restore_drive.sh"
 
-
-
+alias mount-gdrive-ug="mkdir -p ~/mnt/drive-ug && rclone mount drive-ug: ~/mnt/drive-ug --daemon --vfs-cache-mode writes"
+alias umount-gdrive-ug="fusermount -u ~/mnt/drive-ug"
+alias mount-gdrive-sharafat="mkdir -p ~/mnt/drive-sharafat && rclone mount drive-sharafat: ~/mnt/drive-sharafat --daemon --vfs-cache-mode writes"
+alias umount-gdrive-sharafat="fusermount -u ~/mnt/drive-sharafat"
+alias mount-mega-sharafat="mkdir -p ~/mnt/mega-sharafat && rclone mount mega-sharafat: ~/mnt/mega-sharafat --daemon --vfs-cache-mode writes"
+alias umount-mega-sharafat="fusermount -u ~/mnt/mega-sharafat"
