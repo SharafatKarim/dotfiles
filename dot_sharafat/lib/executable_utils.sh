@@ -31,11 +31,17 @@ send_notification() {
     fi
 }
 
+backup_packages() {
+    local target="$SHARAFAT_DIR/packages"
+    mkdir -p "$target"
+    command -v pacman &>/dev/null && pacman -Qqe > "$target/pacman_explicit.txt"
+    command -v uv &>/dev/null && uv tool list > "$target/uv_tools.txt"
+    command -v pnpm &>/dev/null && pnpm list -g --depth=0 > "$target/pnpm_global.txt"
+
+    command -v chezmoi &>/dev/null && chezmoi add "$target"
+    log "BACKUP" "Package lists updated and staged in chezmoi"
+}
+
 backup_pacman_pkgs() {
-    if command -v pacman &> /dev/null; then
-        log "BACKUP" "Backing up pacman package list"
-        pacman -Q > "$SHARAFAT_DIR/pacman_pkgs.txt"
-    else
-        log "BACKUP" "Pacman package manager not found, skipping"
-    fi
+    backup_packages true
 }

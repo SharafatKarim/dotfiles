@@ -17,6 +17,7 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 log "MASTER" "Master Automation Orchestrator started"
+backup_packages
 
 while true; do
     load_settings

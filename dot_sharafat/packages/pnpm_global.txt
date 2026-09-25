@@ -1,0 +1,8 @@
+Legend: production dependency, optional only, dev only
+
+/home/sharafat/.local/share/pnpm/global/v11 (PRIVATE)
+│
+│   dependencies:
+├── @biomejs/biome@2.5.14
+├── lighthouse@13.5.0
+└── playwright@1.63.0
