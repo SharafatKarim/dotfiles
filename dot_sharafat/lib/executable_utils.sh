@@ -34,12 +34,27 @@ send_notification() {
 backup_packages() {
     local target="$SHARAFAT_DIR/packages"
     mkdir -p "$target"
-    command -v pacman &>/dev/null && pacman -Qqe > "$target/pacman_explicit.txt"
-    command -v uv &>/dev/null && uv tool list > "$target/uv_tools.txt"
-    command -v pnpm &>/dev/null && pnpm list -g --depth=0 > "$target/pnpm_global.txt"
+
+    if command -v pacman &>/dev/null; then
+        comm -23 <(pacman -Qenq | sort) <(pacman -Sql chaotic-aur 2>/dev/null | sort) > "$target/pacman_native.txt"
+        cat <(pacman -Qemq) <(comm -12 <(pacman -Qeq | sort) <(pacman -Sql chaotic-aur 2>/dev/null | sort)) | sort -u > "$target/pacman_aur.txt"
+        rm -f "$target/pacman_explicit.txt"
+    fi
+
+    if command -v uv &>/dev/null; then
+        uv tool list 2>/dev/null | awk '/^[a-zA-Z0-9_-]/ && !/^-/ {print $1}' | sort -u > "$target/uv_tools.txt"
+    fi
+
+    if command -v pnpm &>/dev/null; then
+        find "$HOME/.local/share/pnpm/global" -name "package.json" 2>/dev/null | xargs -r jq -r '.dependencies // {} | keys[]' 2>/dev/null | sort -u > "$target/pnpm_global.txt"
+    fi
+
+    if command -v code &>/dev/null; then
+        code --list-extensions 2>/dev/null | sort -u > "$target/vscode_extensions.txt"
+    fi
 
     command -v chezmoi &>/dev/null && chezmoi add "$target"
-    log "BACKUP" "Package lists updated and staged in chezmoi"
+    log "BACKUP" "Sanitized package lists updated and staged in chezmoi"
 }
 
 backup_pacman_pkgs() {
