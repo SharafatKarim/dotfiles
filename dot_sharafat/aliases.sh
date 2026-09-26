@@ -45,11 +45,6 @@ function cl() {
   fi
 }
 
-alias python="uv run"
-alias python3="uv run"
-alias pip="uv pip"
-alias pip3="uv pip"
-
 function mdpdf() {
     if ! command -v md2typst &> /dev/null; then
         echo "md2typst not found. Installing via uv..."
@@ -100,9 +95,15 @@ function gflow {
     git push
 }
 
-alias docker="podman"
+# alias docker="podman" # just use `extra/podman-docker`
+
 alias npm="pnpm"
 alias npx="pnpm dlx"
+
+alias python="uv run"
+alias python3="uv run"
+alias pip="uv pip"
+alias pip3="uv pip"
 
 alias y="yt-dlp"
 alias ya="yt-dlp --extract-audio"
@@ -115,15 +116,19 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias win-up="podman-compose --file /home/sharafat/.sharafat/containers/windows.yaml up -d"
 
 podlatex() {
-    podman run --rm -it \
+    local target="${1:-main.tex}"
+    local it_flag=""
+    [ -t 0 ] && it_flag="-it"
+    podman run --rm $it_flag \
       --userns=keep-id \
       -v "$(pwd):/project:Z" \
       -w /project \
       leplusorg/latex \
-      latexmk -pdf "$1"
+      sh -c 'latexmk -pdf "$1" && latexmk -c "$1"' _ "$target"
 }
 
 alias podlatex-clean='podman run --rm --userns=keep-id -v "$(pwd):/project:Z" -w /project leplusorg/latex latexmk -c'
+alias podlatex-reclaim='podman rmi docker.io/leplusorg/latex'
 
 alias amate="python $HOME/amate.py"
 alias pkg-backup="[ -f ~/.sharafat/lib/utils.sh ] && source ~/.sharafat/lib/utils.sh && backup_pacman_pkgs"
