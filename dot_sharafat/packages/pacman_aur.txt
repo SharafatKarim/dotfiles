@@ -8,6 +8,7 @@ cloudflare-warp-bin
 netbird
 pamac
 pandoc-bin
+pokemon-colorscripts-git
 proton-authenticator-bin
 q4wine-git
 rclone-browser-qt6
