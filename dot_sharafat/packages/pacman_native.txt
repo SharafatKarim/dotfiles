@@ -144,6 +144,7 @@ steam
 sudo
 swtpm
 syncthing
+syncthingtray
 tealdeer
 tectonic
 telegram-desktop

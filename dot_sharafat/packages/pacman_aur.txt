@@ -13,7 +13,6 @@ pokemon-colorscripts-git
 proton-authenticator-bin
 q4wine-git
 rclone-browser-qt6
-syncthingtray-qt6
 ttf-ms-fonts
 ventoy-bin
 visual-studio-code-bin
