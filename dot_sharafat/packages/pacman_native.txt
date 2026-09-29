@@ -59,6 +59,7 @@ intel-ucode
 jdk17-openjdk
 jdk-openjdk
 jq
+jupyter-notebook
 kate
 kdeconnect
 kdegraphics-thumbnailers
