@@ -6,6 +6,7 @@ chaotic-mirrorlist
 claude-code
 cloudflare-warp-bin
 netbird
+onlyoffice-bin
 pamac
 pandoc-bin
 plasma6-applets-eventcalendar
