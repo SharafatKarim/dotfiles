@@ -5,6 +5,7 @@ chaotic-keyring
 chaotic-mirrorlist
 claude-code
 cloudflare-warp-bin
+mongodb-compass
 netbird
 onlyoffice-bin
 pamac
