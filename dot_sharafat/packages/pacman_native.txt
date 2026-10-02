@@ -25,6 +25,8 @@ chromium
 cmake
 copyparty
 discover
+distrobox
+distroshelf
 dnsmasq
 dolphin
 dolphin-plugins
@@ -133,6 +135,7 @@ podman-desktop
 polkit-kde-agent
 powerdevil
 power-profiles-daemon
+python-truststore
 qbittorrent
 qemu-full
 quickjs-ng
