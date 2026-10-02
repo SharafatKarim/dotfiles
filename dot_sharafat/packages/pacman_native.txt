@@ -133,6 +133,7 @@ podman-desktop
 polkit-kde-agent
 powerdevil
 power-profiles-daemon
+qbittorrent
 qemu-full
 quickjs-ng
 rclone
