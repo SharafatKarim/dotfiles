@@ -84,6 +84,7 @@ ksshaskpass
 kwalletmanager
 kwallet-pam
 kwrited
+less
 lib32-mesa
 lib32-vulkan-intel
 libreoffice-fresh
