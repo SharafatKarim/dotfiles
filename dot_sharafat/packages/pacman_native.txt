@@ -136,6 +136,7 @@ podman-desktop
 polkit-kde-agent
 powerdevil
 power-profiles-daemon
+putty
 python-truststore
 qbittorrent
 qemu-full
