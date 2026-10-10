@@ -112,6 +112,7 @@ okular
 ollama
 onnxruntime-cpu
 openai-codex
+opencode
 os-prober
 pacman-contrib
 partitionmanager
