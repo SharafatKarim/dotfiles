@@ -116,6 +116,7 @@ opencode
 os-prober
 pacman-contrib
 partitionmanager
+pdfarranger
 pipewire
 pipewire-alsa
 pipewire-pulse
