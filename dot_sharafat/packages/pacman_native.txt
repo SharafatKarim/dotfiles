@@ -1,5 +1,4 @@
 7zip
-aegisub
 android-udev
 arj
 ark
