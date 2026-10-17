@@ -71,7 +71,6 @@ kdenlive
 kdeplasma-addons
 kdf
 kfind
-kgamma
 kinfocenter
 kio-admin
 kmag
