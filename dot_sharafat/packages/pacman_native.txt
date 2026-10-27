@@ -143,6 +143,7 @@ qbittorrent
 qemu-full
 quickjs-ng
 rclone
+readest
 rtkit
 snap-pac
 snapper
