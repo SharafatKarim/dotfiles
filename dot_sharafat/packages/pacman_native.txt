@@ -106,7 +106,6 @@ noto-fonts-emoji
 ntfs-3g
 obsidian
 obs-studio
-obs-studio-plugin-browser
 okular
 ollama
 onnxruntime-cpu
