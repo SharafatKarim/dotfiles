@@ -136,6 +136,7 @@ podman-desktop
 polkit-kde-agent
 powerdevil
 power-profiles-daemon
+proton-vpn-gtk-app
 putty
 python-truststore
 qbittorrent
