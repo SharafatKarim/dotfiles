@@ -71,6 +71,7 @@ kdenlive
 kdeplasma-addons
 kdf
 kfind
+kgraphviewer
 kinfocenter
 kio-admin
 kmag
@@ -138,6 +139,7 @@ powerdevil
 power-profiles-daemon
 proton-vpn-gtk-app
 putty
+python-graphviz
 python-truststore
 qbittorrent
 qemu-full
