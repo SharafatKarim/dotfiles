@@ -54,6 +54,7 @@ haruna
 hugo
 hunspell-en_us
 imagemagick
+img2pdf
 inkscape
 inotify-tools
 intel-media-driver
