@@ -147,10 +147,12 @@ qemu-full
 quickjs-ng
 rclone
 readest
+rsync
 rtkit
 snap-pac
 snapper
 spectacle
+sshpass
 starship
 steam
 sudo
